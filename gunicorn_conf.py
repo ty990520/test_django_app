@@ -2,7 +2,7 @@ import multiprocessing
 from deploy_tools.workers import CustomUvicornWorker
 
 name = "django_gunicorn"
-bind = "unix:/project/django_gunicorn.sock"    # UNIX 소켓 사용 방식 -> 속도가 빠름
+bind = "127.0.0.1:8000"    # 네트워크 소켓 사용 (분산환경을 위해)
 workers = multiprocessing.cpu_count() * 2 + 1  
 keepalive = 62
 worker_connections = 1000 * workers
