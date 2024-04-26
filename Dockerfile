@@ -12,4 +12,4 @@ RUN pip install -r requirements.txt
 COPY . /app/
 
 # Gunicorn으로 애플리케이션 실행 (포트는 나중에 명령어로 지정)
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "testProject.wsgi:application"]
+CMD ["gunicorn",  "--chdir", "/app/myProject", "--bind", "0.0.0.0:8000", "testProject.wsgi:application"]
